@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		136C9B80282B86B000B6ECAB /* EndGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C9B7F282B86B000B6ECAB /* EndGameScene.swift */; };
+		136C9B81282B86B000B6ECAB /* EndGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C9B7F282B86B000B6ECAB /* EndGameScene.swift */; };
+		136C9B87282B96EB00B6ECAB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 136C9B85282B96EB00B6ECAB /* Model.xcdatamodeld */; };
+		136C9B88282B96EB00B6ECAB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 136C9B85282B96EB00B6ECAB /* Model.xcdatamodeld */; };
+		136C9B8A282B975C00B6ECAB /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C9B89282B975C00B6ECAB /* Interactor.swift */; };
+		136C9B8B282B975C00B6ECAB /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C9B89282B975C00B6ECAB /* Interactor.swift */; };
+		136C9B8D282B979D00B6ECAB /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C9B8C282B979D00B6ECAB /* PersistentContainer.swift */; };
+		136C9B8E282B979D00B6ECAB /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C9B8C282B979D00B6ECAB /* PersistentContainer.swift */; };
 		137C97DF282521F0005E692D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C97DE282521F0005E692D /* AppDelegate.swift */; };
 		137C97E1282521F0005E692D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C97E0282521F0005E692D /* GameViewController.swift */; };
 		137C97E4282521F0005E692D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137C97E2282521F0005E692D /* Main.storyboard */; };
@@ -33,6 +41,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		136C9B7F282B86B000B6ECAB /* EndGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameScene.swift; sourceTree = "<group>"; };
+		136C9B86282B96EB00B6ECAB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		136C9B89282B975C00B6ECAB /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		136C9B8C282B979D00B6ECAB /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		137C97D3282521EE005E692D /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		137C97D4282521EE005E692D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		137C97D5282521EE005E692D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -71,9 +83,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		136C9B8F282B9AE300B6ECAB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				136C9B85282B96EB00B6ECAB /* Model.xcdatamodeld */,
+				136C9B89282B975C00B6ECAB /* Interactor.swift */,
+				136C9B8C282B979D00B6ECAB /* PersistentContainer.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		137C97CD282521EE005E692D = {
 			isa = PBXGroup;
 			children = (
+				136C9B8F282B9AE300B6ECAB /* CoreData */,
 				137C97D2282521EE005E692D /* MineSweeper Shared */,
 				137C97DD282521F0005E692D /* MineSweeper iOS */,
 				137C97ED282521F0005E692D /* MineSweeper macOS */,
@@ -128,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				137C9807282528CF005E692D /* GameBoard.swift */,
+				136C9B7F282B86B000B6ECAB /* EndGameScene.swift */,
 				137C980A2825314F005E692D /* Tile.swift */,
 				137C980D28253C13005E692D /* SpriteSheet.swift */,
 				137C9810282543D1005E692D /* Resources.swift */,
@@ -242,8 +266,12 @@
 			files = (
 				137C9808282528CF005E692D /* GameBoard.swift in Sources */,
 				137C97FA282521F0005E692D /* GameScene.swift in Sources */,
+				136C9B8A282B975C00B6ECAB /* Interactor.swift in Sources */,
+				136C9B8D282B979D00B6ECAB /* PersistentContainer.swift in Sources */,
 				137C9811282543D1005E692D /* Resources.swift in Sources */,
 				137C980E28253C13005E692D /* SpriteSheet.swift in Sources */,
+				136C9B80282B86B000B6ECAB /* EndGameScene.swift in Sources */,
+				136C9B87282B96EB00B6ECAB /* Model.xcdatamodeld in Sources */,
 				137C980B2825314F005E692D /* Tile.swift in Sources */,
 				137C97E1282521F0005E692D /* GameViewController.swift in Sources */,
 				137C97DF282521F0005E692D /* AppDelegate.swift in Sources */,
@@ -256,8 +284,12 @@
 			files = (
 				137C98092825297B005E692D /* GameBoard.swift in Sources */,
 				137C97FB282521F0005E692D /* GameScene.swift in Sources */,
+				136C9B8B282B975C00B6ECAB /* Interactor.swift in Sources */,
+				136C9B8E282B979D00B6ECAB /* PersistentContainer.swift in Sources */,
 				137C9812282543D1005E692D /* Resources.swift in Sources */,
 				137C980F28253C13005E692D /* SpriteSheet.swift in Sources */,
+				136C9B81282B86B000B6ECAB /* EndGameScene.swift in Sources */,
+				136C9B88282B96EB00B6ECAB /* Model.xcdatamodeld in Sources */,
 				137C980C2825342E005E692D /* Tile.swift in Sources */,
 				137C97F1282521F0005E692D /* GameViewController.swift in Sources */,
 				137C97EF282521F0005E692D /* AppDelegate.swift in Sources */,
@@ -547,6 +579,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		136C9B85282B96EB00B6ECAB /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				136C9B86282B96EB00B6ECAB /* Model.xcdatamodel */,
+			);
+			currentVersion = 136C9B86282B96EB00B6ECAB /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 137C97CE282521EE005E692D /* Project object */;
 }

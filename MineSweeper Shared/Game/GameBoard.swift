@@ -33,6 +33,9 @@ struct TileCoordinate {
 class GameBoard{
     let node: SKShapeNode
     let size: Int
+    var flagCount = 0
+    var isFinished: Bool = false
+    var isGameFinished: Bool = false
     
     private var tiles: [Tile]
     
@@ -113,11 +116,53 @@ class GameBoard{
     }
     
     func gameOver(){
+        isGameFinished = true
         tiles.filter{$0.isBomb}.forEach{$0.node.texture = Resources.tiles.bomb}
+    }
+    
+    func gameFinished(){
+        isGameFinished = true
+        isFinished = true
+        print("Game is Finished")
+    }
+    
+    func countFlagAround(tile: Tile) -> Int{
+        var flags = 0
+        for x in adjucentTiles(for: tile){
+            if x.isFlagged{
+                flags += 1
+            }
+        }
+        return flags
+    }
+    
+    func countBombsAround(tile: Tile) -> Int{
+        var bombs = 0
+        for x in adjucentTiles(for: tile){
+            if x.isBomb{
+                bombs += 1
+            }
+        }
+        return bombs
     }
     
     func revealTile(at position: CGPoint){
         guard let tile = tileAt(position: position) else {return}
+        
+        if flagCount == Int((CGFloat(numberOfTiles) / 10).rounded(.up)){
+            gameFinished()
+            tiles.filter({$0.isBomb}).forEach{if ($0.isBomb == $0.isFlagged){ $0.node.texture = Resources.tiles.flag}}
+        }
+        
+        if countBombsAround(tile: tile) == countFlagAround(tile: tile){
+            for x in adjucentTiles(for: tile){
+                if !x.isBomb && !x.isFlagged{
+                    reveal(tile: x)
+                }else if(x.isBomb && !x.isFlagged){
+                    gameOver()
+                }
+            }
+        }
         
         if tile.isBomb {
             tile.isRevealed = true
@@ -127,6 +172,7 @@ class GameBoard{
         }else{
             reveal(tile: tile)
         }
+        
     }
     
     func toggleFlag(at position: CGPoint) {
@@ -136,19 +182,27 @@ class GameBoard{
         
         tile.isFlagged.toggle()
         if tile.isFlagged{
+            flagCount += 1
             tile.node.texture = Resources.tiles.flag
         }else{
+            flagCount -= 1
             tile.node.texture = Resources.tiles.unDiscovered
         }
     }
     
     private func reveal(tile: Tile) {
+       
         tile.isRevealed = true
+        
+        if tile.isFlagged{
+            flagCount -= 1
+        }
+        
         let adjucentBombCount = numberOfAdjcentBombs(for: tile)
         tile.node.texture = textureForAdjucentBombCount(adjucentBombCount)
         
         if adjucentBombCount == 0{
-            for tile in adjucentTiles(for: tile).filter({!$0.isRevealed}) {
+            for tile in adjucentTiles(for: tile).filter({!$0.isRevealed}).filter({!$0.isFlagged}){
                 if !tile.isBomb {
                     DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(30)){
                         self.reveal(tile: tile)
@@ -156,6 +210,7 @@ class GameBoard{
                 }
             }
         }
+        
     }
     
     private func textureForAdjucentBombCount(_ count: Int) -> SKTexture{
@@ -215,7 +270,7 @@ class GameBoard{
     }
     
     
-    private func tileAt(position: CGPoint) -> Tile?{
+    func tileAt(position: CGPoint) -> Tile?{
         let x = position.x + node.frame.width/2
         let y = node.frame.height - position.y - node.frame.height/2
         
