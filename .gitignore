@@ -1,6 +1,7 @@
 # Created by https://www.gitignore.io/api/c,c++,swift,macos,swiftpm,carthage,cocoapods,objective-c,swiftpackagemanager
 # Edit at https://www.gitignore.io/?templates=c,c++,swift,macos,swiftpm,carthage,cocoapods,objective-c,swiftpackagemanager
 
+/Users/venk-zstch1038/Documents/MineSweepers/MineSweeper/MineSweeper.xcodeproj/xcuserdata
 ### C ###
 # Prerequisites
 *.d
